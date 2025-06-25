@@ -20,6 +20,9 @@
       min-width: 40px;
       
     }
+    body{
+      padding-top: 70px;
+    }
     .nav-item:hover .shopping {
       display: block !important;
       z-index: 1000;
@@ -43,11 +46,21 @@
       align-content: center;
       margin-left: -15%;
     }
+     .user-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    width: 300px;
+    position: absolute;
+    right: -15px;
+    top: 25px;
+}
     
 </style>
 </head>
 <body class="bg-dark text-light">
- <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+ <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand text-white ms-5" href="#">Tech-Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +80,7 @@
             </div>
           </div>
           <div class="nav-item position-relative me-5">
-            <a href="#" class="nav-link text-white">
+            <a href="/cart.html" class="nav-link text-white">
               <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
               <sup class="bg-danger badge rounded-circle">4</sup>
               <span class="visually-hidden">Cart</span>
@@ -78,33 +91,25 @@
               </div>
             </div>
           </div>
-          <div class="nav-item position-relative me-5">
-            <a href="#" class="nav-link text-white">
-              <i class="fas fa-user" aria-hidden="true"></i>
-              <span class="visually-hidden">User Profile</span>
-            </a>
-            
+          <div class="user-dropdown dropdown me-5">
+          <a href="#" class="nav-link text-white" data-bs-toggle="dropdown">
+            <i class="fas fa-user"></i>
+          </a>
+          <div class="dropdown-menu bg-dark border border-secondary-subtle text-white p-3">
+            <p class="mb-0 text-white">Hello!</p>
+            <p class="text-white opacity-75">Access account and manage orders</p>
+            <a href="#" class="btn btn-outline-light btn-sm w-50 opacity-75" data-bs-toggle="modal"
+              data-bs-target="#signupModal">Login/Signup</a>
+            <hr class="border-secondary-subtle">
+            <p class="text-white opacity-75">Please Login</p>
           </div>
+        </div>
         </div>
       </div>
     </div>
   </nav>
-  <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="cartSidebar" aria-labelledby="cartSidebarLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="cartSidebarLabel">Order Summary (4 items)</h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <p>Original Price: ₹22,978</p>
-      <p>Discount: <span class="text-success"> ₹10,132</span></p>
-      <p>Delivery: <span class="text-success">Free</span></p>
-      <hr>
-      <h5>Total Price: ₹12,846</h5>
-      <button class="btn btn-danger w-100 mt-3">Checkout</button>
-    </div>
-  </div>
-
-  <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+  
+   <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
 <div class="carousel-item active">
         <div class="container py-5">
@@ -116,7 +121,7 @@
               <button class="btn btn-danger">Shop Now</button>
             </div>
             <div class="col-md-6 text-center">
-              <img src="/images/products/boat131-3.png" class="img-fluid" alt="boAt Airdopes" style="max-height: 400px;">
+              <img src="/images/products/boat131-3.png" class="img-fluid" alt="boAt Airdopes" style="max-height: 600px;">
             </div>
           </div>
         </div>
@@ -131,12 +136,12 @@
               <button class="btn btn-danger">Shop Now</button>
             </div>
             <div class="col-md-6 text-center">
-              <img src="/images/products/jbl660nc-1.png" class="img-fluid" alt="JBL Headphones" style="max-height: 400px;">
+              <img src="/images/products/jbl660nc-1.png" class="img-fluid" alt="JBL Headphones" style="max-height: 600px;">
             </div>
           </div>
         </div>
-      </div>
-    <div class="carousel-item">
+      </div> 
+     <div class="carousel-item">
         <div class="container py-5">
           <div class="row align-items-center">
             <div class="col-md-6">
@@ -146,19 +151,20 @@
               <button class="btn btn-danger">Shop Now</button>
             </div>
             <div class="col-md-6 text-center">
-              <img src="/images/products/sonyXb910n-1.png" class="img-fluid" alt="SONY Headphones" style="max-height: 400px;">
+              <img src="/images/products/sonyXb910n-1.png" class="img-fluid" alt="SONY Headphones" style="max-height: 600px;">
             </div>
           </div>
         </div>
       </div>
 </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
  <span class="carousel-control-prev-icon"></span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#productcarousel" data-bs-slide="next">
     <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
+  </button> -->
+</div> 
+
  <div class="container py-5">
     <h3 class="text-center mb-4">Top Products</h3>
     <div class="d-flex justify-content-center mb-4 flex-wrap gap-2">
@@ -292,22 +298,22 @@
     <div class="container py-4">
       <div class="row text-center">
         <div class="col-md-3">
-          <i class="bi bi-truck fs-2 text-danger"></i>
+          <i class="bi bi-truck fs-2 text-danger" aria-hidden="true"></i>
           <h6 class="mt-2 fw-bold">Express Delivery</h6>
           <p class="small">Ships in 24 Hours</p>
         </div>
         <div class="col-md-3">
-          <i class="bi bi-shield-check fs-2 text-danger"></i>
+          <i class="bi bi-shield-check fs-2 text-danger" aria-hidden="true"></i>
           <h6 class="mt-2 fw-bold">Brand Warranty</h6>
           <p class="small">100% Original products</p>
         </div>
         <div class="col-md-3">
-          <i class="bi bi-tag fs-2 text-danger"></i>
+          <i class="bi bi-tag fs-2 text-danger" aria-hidden="true"></i>
           <h6 class="mt-2 fw-bold">Exciting Deals</h6>
           <p class="small">On all prepaid orders</p>
         </div>
         <div class="col-md-3">
-          <i class="bi bi-credit-card-2-front fs-2 text-danger"></i>
+          <i class="bi bi-credit-card-2-front fs-2 text-danger" aria-hidden="true"></i>
           <h6 class="mt-2 fw-bold">Secure Payments</h6>
           <p class="small">SSL / Secure certificate</p>
         </div>
